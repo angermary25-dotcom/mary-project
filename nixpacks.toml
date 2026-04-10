@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["jdk17", "maven"]
+
+[phases.build]
+cmds = ["cd banking-system-backend && mvn clean package -DskipTests"]
+
+[start]
+cmd = "java -jar banking-system-backend/target/banking-system-backend-0.0.1-SNAPSHOT.jar"
