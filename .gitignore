@@ -1,0 +1,42 @@
+# ========================
+# Java / Spring Boot
+# ========================
+banking-system-backend/target/
+banking-system-backend/*.class
+banking-system-backend/*.jar
+banking-system-backend/*.war
+banking-system-backend/.mvn/
+banking-system-backend/mvnw
+banking-system-backend/mvnw.cmd
+*.log
+*.tmp
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+.project
+.classpath
+.settings/
+
+# ========================
+# React / Node
+# ========================
+banking-system-frontend/node_modules/
+banking-system-frontend/build/
+banking-system-frontend/.env
+banking-system-frontend/.env.local
+banking-system-frontend/.env.development.local
+banking-system-frontend/.env.test.local
+banking-system-frontend/.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
