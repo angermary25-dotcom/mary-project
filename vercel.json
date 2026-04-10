@@ -1,0 +1,9 @@
+{
+  "installCommand": "cd banking-system-frontend && npm install",
+  "buildCommand": "cd banking-system-frontend && npm run build",
+  "outputDirectory": "banking-system-frontend/build",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
