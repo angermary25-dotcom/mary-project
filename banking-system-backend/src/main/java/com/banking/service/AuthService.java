@@ -5,11 +5,14 @@ import com.banking.dto.AuthResponse;
 import com.banking.dto.LoginRequest;
 import com.banking.dto.RegisterRequest;
 import com.banking.model.User;
+import com.banking.model.Account;
+import com.banking.repository.AccountRepository;
 import com.banking.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +21,7 @@ import java.util.Map;
 public class AuthService {
 
     private final UserRepository userRepository;
+    private final AccountRepository accountRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
@@ -33,6 +37,12 @@ public class AuthService {
         user.setRole("USER");
 
         User savedUser = userRepository.save(user);
+
+        // Auto-create a bank account with initial balance
+        Account account = new Account();
+        account.setUser(savedUser);
+        account.setBalance(new BigDecimal("1000.00"));
+        accountRepository.save(account);
 
         String token = generateTokenForUser(savedUser);
 

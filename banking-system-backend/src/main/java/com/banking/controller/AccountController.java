@@ -26,9 +26,6 @@ public class AccountController {
     @GetMapping("/{userId}")
     public ResponseEntity<List<AccountResponse>> getAccountsByUserId(@PathVariable Long userId) {
         List<Account> accounts = accountService.findByUserId(userId);
-        if (accounts.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
         List<AccountResponse> response = accounts.stream()
                 .map(acc -> new AccountResponse(acc.getId(), acc.getBalance()))
                 .collect(Collectors.toList());
